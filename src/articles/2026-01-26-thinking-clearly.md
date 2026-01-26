@@ -1,5 +1,5 @@
 ---
-title: "Thinking Clearly"
+title: "*fake placeholder* Thinking Clearly"
 date: 2026-01-26
 tags:
   - mind

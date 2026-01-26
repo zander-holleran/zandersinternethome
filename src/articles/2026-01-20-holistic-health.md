@@ -1,5 +1,5 @@
 ---
-title: "The Mind-Body Connection"
+title: "*fake placeholder* The Mind-Body Connection"
 date: 2026-01-20
 tags:
   - mind
