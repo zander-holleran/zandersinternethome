@@ -1,0 +1,15 @@
+---
+layout: layouts/list.njk
+title: Mind
+theme: mind
+permalink: /mind/
+---
+{% for post in collections.mind %}
+  {% include "partials/article-card.njk" %}
+{% endfor %}
+
+{% if not collections.mind or collections.mind.length == 0 %}
+  <p style="color: var(--text-muted); text-align: center; padding: 2rem;">
+    No mind articles yet. Check back soon!
+  </p>
+{% endif %}

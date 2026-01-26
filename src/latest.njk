@@ -1,0 +1,25 @@
+---
+permalink: /latest/index.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  {% if collections.allArticles.length > 0 %}
+    <meta http-equiv="refresh" content="0; url={{ collections.allArticles[0].url }}">
+  {% else %}
+    <meta http-equiv="refresh" content="0; url=/all/">
+  {% endif %}
+</head>
+<body style="background: #0b0b0b; color: #fff; font-family: system-ui; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0;">
+  <p>Redirecting to
+    {% if collections.allArticles.length > 0 %}
+      latest article...
+    {% else %}
+      all articles...
+    {% endif %}
+  </p>
+</body>
+</html>

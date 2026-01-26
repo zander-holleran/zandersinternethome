@@ -1,0 +1,15 @@
+---
+layout: layouts/list.njk
+title: Body
+theme: body
+permalink: /body/
+---
+{% for post in collections.body %}
+  {% include "partials/article-card.njk" %}
+{% endfor %}
+
+{% if not collections.body or collections.body.length == 0 %}
+  <p style="color: var(--text-muted); text-align: center; padding: 2rem;">
+    No body articles yet. Check back soon!
+  </p>
+{% endif %}

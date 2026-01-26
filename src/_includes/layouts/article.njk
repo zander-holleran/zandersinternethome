@@ -1,0 +1,21 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+<article class="article-container">
+  <header class="article-header">
+    <a href="/all/" class="back-link">&larr; All Articles</a>
+    <h1>{{ title }}</h1>
+    <p class="meta">
+      {{ date | dateFormat }}
+      {% if tags %}
+        &middot;
+        {% for tag in tags %}{% if tag != "articles" %}{{ tag }}{% if not loop.last %}, {% endif %}{% endif %}{% endfor %}
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="article-content">
+    {{ content | safe }}
+  </div>
+</article>
+{% endblock %}

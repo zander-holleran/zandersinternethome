@@ -1,0 +1,18 @@
+<a href="{{ post.url }}" class="article-card">
+  {% if post.data.thumbnail %}
+    <img src="{{ post.data.thumbnail }}" alt="" class="card-thumb" loading="lazy">
+  {% endif %}
+  <div class="card-content">
+    <h2>{{ post.data.title }}</h2>
+    <p class="card-meta">
+      {{ post.date | dateFormat }}
+      {% if post.data.tags %}
+        &middot;
+        {% for tag in post.data.tags %}{% if tag != "articles" %}{{ tag }}{% if not loop.last %}, {% endif %}{% endif %}{% endfor %}
+      {% endif %}
+    </p>
+    {% if post.data.excerpt %}
+      <p class="card-excerpt">{{ post.data.excerpt }}</p>
+    {% endif %}
+  </div>
+</a>

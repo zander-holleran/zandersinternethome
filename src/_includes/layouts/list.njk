@@ -1,0 +1,14 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+<div class="list-container">
+  <header class="list-header">
+    <a href="/" class="back-link">&larr; Home</a>
+    <h1>{{ title }}</h1>
+  </header>
+
+  <div class="article-list">
+    {{ content | safe }}
+  </div>
+</div>
+{% endblock %}

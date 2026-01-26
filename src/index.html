@@ -17,18 +17,38 @@
       justify-content: center;
       background: #0b0b0b;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Ambient glow layer - fills entire viewport */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background:
+        url('/assets/ZIH_image_with_text.png') center center / contain no-repeat,
+        radial-gradient(ellipse at center, rgba(30, 28, 25, 0.8) 0%, #0b0b0b 60%);
+      filter: blur(40px) saturate(1.2);
+      transform: scale(1.1);
+      z-index: 0;
+      opacity: 0.5;
     }
 
     .hero-wrapper {
-      width: min(100vw, 1000px);
-      padding: 16px;
+      position: relative;
+      z-index: 1;
+      width: min(95vw, 1100px);
+      padding: 2rem;
     }
 
     .hero {
-      position: relative;          /* so we can absolutely-position zones inside */
+      position: relative;
       border-radius: 16px;
       overflow: hidden;
       background: #111;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
 
     .hero img {
@@ -43,10 +63,10 @@
       display: block;
       text-decoration: none;
       cursor: pointer;
-
-      /* Uncomment these while tuning positions: */ */
-      /* background: rgba(255, 255, 255, 0.08);
-      outline: 1px solid rgba(255, 255, 255, 0.4) */
+      /* Uncomment for debugging zone positions:
+      background: rgba(255, 255, 255, 0.08);
+      outline: 1px solid rgba(255, 255, 255, 0.4);
+      */
     }
 
     .zone:focus-visible {
@@ -56,40 +76,43 @@
   </style>
 </head>
 <body>
+  <!-- Ambient background glow -->
+  <div class="ambient-bg"></div>
+
   <div class="hero-wrapper">
     <div class="hero">
       <!-- Main home image -->
-      <img src="assets/ZIH_image_with_text.png"
+      <img src="/assets/ZIH_image_with_text.png"
            alt="Zander's Internet Home navigation sketch with tiles for Mind, Body, and About" />
 
       <!-- Mind tile (entire tile clickable) -->
-      <a href="/mind"
+      <a href="/mind/"
          class="zone"
          aria-label="Mind"
          style="top: 12.5%; left: 14.5%; width: 30%; height: 33%;"></a>
 
       <!-- Body tile (entire tile clickable) -->
-      <a href="/body"
+      <a href="/body/"
          class="zone"
          aria-label="Body"
          style="top: 12.5%; left: 50%; width: 30%; height: 33%;"></a>
 
       <!-- About tile (entire tile clickable) -->
-      <a href="/about"
+      <a href="/about/"
          class="zone"
          aria-label="About"
          style="top: 50%; left: 16%; width: 15%; height: 4.5%;"></a>
 
       <!-- Latest tile (entire tile clickable) -->
-      <a href="/latest"
+      <a href="/latest/"
          class="zone"
-         aria-label="latest"
+         aria-label="Latest"
          style="top: 50%; left: 40%; width: 15%; height: 4.5%;"></a>
 
-         <!-- All tile (entire tile clickable) -->
-      <a href="/all"
+      <!-- All tile (entire tile clickable) -->
+      <a href="/all/"
          class="zone"
-         aria-label="all"
+         aria-label="All"
          style="top: 50%; left: 63%; width: 15%; height: 4.5%;"></a>
     </div>
   </div>
