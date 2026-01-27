@@ -28,9 +28,19 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
-  // Note: 11ty automatically creates collections for each tag
-  // collections.mind = all articles with "mind" in tags
-  // collections.body = all articles with "body" in tags
+  // Collection of "mind" articles sorted by date (newest first)
+  eleventyConfig.addCollection("mind", function(collection) {
+    return collection.getFilteredByGlob("src/articles/*.md")
+      .filter(item => item.data.tags && item.data.tags.includes("mind"))
+      .sort((a, b) => b.date - a.date);
+  });
+
+  // Collection of "body" articles sorted by date (newest first)
+  eleventyConfig.addCollection("body", function(collection) {
+    return collection.getFilteredByGlob("src/articles/*.md")
+      .filter(item => item.data.tags && item.data.tags.includes("body"))
+      .sort((a, b) => b.date - a.date);
+  });
 
   return {
     dir: {
